@@ -122,8 +122,8 @@
           $p2 -> previous_opponent = $p1 -> name;
 
           $toss = rand(0, 1);
-          $p1 -> heads_tails = $toss ? "heads" : "tails";
-          $p2 -> heads_tails = !$toss ? "heads" : "tails";
+          $p1 -> heads_tails[] = $toss ? "heads" : "tails";
+          $p2 -> heads_tails[] = !$toss ? "heads" : "tails";
 
           $pairs[] = array($p1, $p2);
         }
@@ -137,6 +137,7 @@
         foreach($t -> get_available_players() as $p)
         {
           $p -> previous_opponent = NULL;
+          $p -> heads_tails[] = NULL;
           $unpaired_players[] = $p;
         }
       } 
@@ -170,7 +171,7 @@
             $p1 = $p[0];
             $p2 = $p[1];
             
-            $x = ($toss == $p1 -> heads_tails) ? True : False;
+            $x = ($toss == $p1 -> heads_tails[$this -> current_round]) ? True : False;
             $p1 -> results[] = $x;
             $p2 -> results[] = !$x;
           }
