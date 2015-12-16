@@ -11,6 +11,8 @@
 
     protected $rounds = [];
 
+    protected $current_round = 0;
+
     public function __construct($N, $team_colours)
     {
       $this -> number_of_players = $N;
@@ -119,6 +121,10 @@
           $p1 -> previous_opponent = $p2 -> name;
           $p2 -> previous_opponent = $p1 -> name;
 
+          $toss = rand(0, 1);
+          $p1 -> heads_tails = $toss ? "heads" : "tails";
+          $p2 -> heads_tails = !$toss ? "heads" : "tails";
+
           $pairs[] = array($p1, $p2);
         }
       }
@@ -148,6 +154,32 @@
       for($i=0; $i < $n; $i++)
       {
         $this -> schedule_next_round();
+      }
+    }
+
+    public function play_rounds($n = 1)
+    {
+      for($i = 0; $i < $n; $i++)
+      {
+        if($this -> current_round < sizeof($this -> rounds))
+        {
+          foreach($this -> rounds[$this -> current_round]['pairs'] as $p)
+          {
+            $toss = rand(0, 1);
+            $toss =  $toss ? "heads" : "tails";
+            $p1 = $p[0];
+            $p2 = $p[1];
+            
+            $x = ($toss == $p1 -> heads_tails) ? True : False;
+            $p1 -> results[] = $x;
+            $p2 -> results[] = !$x;
+          }
+          foreach($this -> rounds[$this -> current_round]['unpaired_players'] as $p)
+          {
+            $p -> results[] = NULL;
+          }
+        }
+        $this -> current_round++;
       }
     }
 

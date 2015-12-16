@@ -20,6 +20,8 @@
       public $name = NULL;
 
       public $selected = False;
+
+      public $results = [];
   }
 
   class team
