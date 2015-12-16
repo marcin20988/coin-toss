@@ -4,6 +4,8 @@
   
   $colours = ["red", "green", "yellow", "blue", "orange", "pink", "black", "white"];
   $S = new scheduler(51, $colours);
+  //$S = new scheduler(9, ["red", "green", "blue", "orange"]);
+  //$S = new scheduler(3, ["red", "green"]);
   $S -> schedule_fixtures(6);
   $S -> play_rounds(3);
   $S -> play_rounds(3);
@@ -26,6 +28,7 @@
     $i = 1;
     foreach($f['pairs'] as $p)
     {
+      if(sizeof($p[0] -> results) != 6 || sizeof($p[1] -> results) != 6) echo "WRONG!!!\n";
       $status1 = $p[0] -> results[$cnt - 1] ? "Winner" : "Loser";
       $status2 = $p[1] -> results[$cnt - 1] ? "Winner" : "Loser";
       echo "\t" . $p[0] -> name . " (" . $p[0] -> team . ", $status1) \t\t vs\t\t";
