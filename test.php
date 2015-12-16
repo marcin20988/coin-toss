@@ -5,7 +5,8 @@
   $colours = ["red", "green", "yellow", "blue", "orange", "pink", "black", "white"];
   $S = new scheduler(51, $colours);
   $S -> schedule_fixtures(6);
-  $S -> play_rounds(6);
+  $S -> play_rounds(3);
+  $S -> play_rounds(3);
 
   foreach($S -> teams as $t)
   {
