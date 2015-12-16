@@ -2,13 +2,13 @@
   require_once("./team.php");
   require_once("./scheduler.php");
   
+  // teams for the tournament
   $colours = ["red", "green", "yellow", "blue", "orange", "pink", "black", "white"];
-  $S = new scheduler(51, $colours);
-  //$S = new scheduler(9, ["red", "green", "blue", "orange"]);
-  //$S = new scheduler(3, ["red", "green"]);
+  $S = new scheduler(51, $colours); 
+  // schedule 6 rounds of the game
   $S -> schedule_fixtures(6);
-  $S -> play_rounds(3);
-  $S -> play_rounds(3);
+  // play all 6 rounds of the game
+  $S -> play_rounds(6);
 
   foreach($S -> teams as $t)
   {
