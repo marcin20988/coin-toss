@@ -7,3 +7,20 @@
 {      
   width:        1000px;
 }
+
+#teams_assigned td
+{
+  min-width:    200px;
+  text-align:   center;
+}
+
+#teams_assigned, #results
+{
+  margin:       45px 20px;
+}
+
+#results td
+{
+  min-width:    200px;
+  text-align:   center;
+}

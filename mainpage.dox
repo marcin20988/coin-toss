@@ -1,0 +1,34 @@
+/**
+
+\mainpage Coin toss
+
+Detailed documentation of class structure can be found here: <a href="annotated.html">Classes</a>.
+
+The goal of this code is to provide a coin toss scheduling functionality through class ::scheduler. 
+
+Matchups are created in a way allowing maximum number of matches between
+players at the same time aiming for maximum level of randomness to the process
+and allowing for matchups between each individual pair of players.
+
+To achieve this the match assignment process is divided in two steps:
+
+-# First setep
+
+  - Most populated team is selected first and then any other team with more than
+  one available player is selected and a matchup is created between two randomly
+  selected players from these teams. 
+  
+  - This approach allows every pair of players to create a matchup.
+
+  - Most populated team is the one that has most players still not selected for any
+  match in the current round.
+
+  - This process is repeated untill each class has only one player left.
+
+-# Second step
+
+  - This stage starts with all teams having one player available for selection
+  therefore the pairs are created entirely randomly between ramaining players
+
+  - This approach allows maximum number of pairs to be created
+*/

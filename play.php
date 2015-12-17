@@ -54,8 +54,8 @@
               $S -> schedule_fixtures($M);
               $S -> play_rounds($M);
               $data = $S -> get_fixtures();
-              echo "<table>";
-                echo "<th>Teams</th>";
+              echo "<table id='teams_assigned'>";
+                echo "<th>Teams assigned</th>";
                 foreach($S -> teams as $t)
                 { 
                   echo "<tr style='background-color: " . $team_colours[$t -> colour] . "'>";
@@ -68,10 +68,10 @@
                 }
               echo "</table>";
 
-              echo "<table id='results'>";
               $cnt = 1;
               foreach($data as $fixture)
               {
+                echo "<table id='results'>";
                 echo "<th>Fixture $cnt</th>";
                 $pair_cnt = 0;
                 foreach($fixture['pairs'] as $p)
@@ -101,9 +101,10 @@
                 }
                 echo "</tr>";
                 $cnt++;
+                echo "</table>";
 
               }
-              echo "</table>";
+
             }
     ?>
     </div>
