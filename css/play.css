@@ -24,3 +24,9 @@
   min-width:    200px;
   text-align:   center;
 }
+
+.text-box
+{
+  font-size:    25;
+  text-decoration:      underline;
+}

@@ -69,6 +69,9 @@
               echo "</table>";
 
               $cnt = 1;
+              echo "<div class='text-box'>";
+              echo "Border around a player indicates he won the round";
+              echo "</div>";
               foreach($data as $fixture)
               {
                 echo "<table id='results'>";
