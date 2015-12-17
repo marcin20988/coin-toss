@@ -172,12 +172,12 @@
     public function select_most_populated_team($teams)
     {
       $max_players = 0;
-      foreach($teams as $t) $max_players = max($max_players, $t -> number_of_players);
+      foreach($teams as $t) $max_players = max($max_players, $t -> players_left);
 
       $temp_t = [];
       foreach($teams as $t)
       { 
-        if($max_players == $t -> number_of_players)
+        if($max_players == $t -> players_left)
         {
           $temp_t[] = $t;
         }
@@ -408,7 +408,7 @@
       $players2 = $team2 -> get_available_players();
       $team1 -> players_left--;
       $team2 -> players_left--;
-      
+
       $pairs = [];
 
       foreach($players1 as $p1)

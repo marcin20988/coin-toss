@@ -5,8 +5,9 @@
   // teams for the tournament
   $colours = ["red", "green", "yellow", "blue", "orange", "pink", "black", "white"];
   $S = new scheduler(51, $colours); 
+  //$S = new scheduler(5, ["red", "blue"]); 
   // schedule 6 rounds of the game
-  $S -> schedule_fixtures(6);
+  $S -> schedule_fixtures(1);
   // play all 6 rounds of the game
   $S -> play_rounds(6);
 
@@ -28,7 +29,6 @@
     $i = 1;
     foreach($f['pairs'] as $p)
     {
-      if(sizeof($p[0] -> results) != 6 || sizeof($p[1] -> results) != 6) echo "WRONG!!!\n";
       $status1 = $p[0] -> results[$cnt - 1] ? "Winner" : "Loser";
       $status2 = $p[1] -> results[$cnt - 1] ? "Winner" : "Loser";
       echo "\t" . $p[0] -> name . " (" . $p[0] -> team . ", $status1) \t\t vs\t\t";
@@ -36,7 +36,7 @@
     }
     echo"\t-----\n";
     echo "\tUnpaired players:\n";
-    foreach($f['unpaired_players'] as $p) echo "\t" . $p -> name . " (" . $p -> team . ") \n";
+    //foreach($f['unpaired_players'] as $p) echo "\t" . $p -> name . " (" . $p -> team . ") \n";
 
 
     $cnt++;
